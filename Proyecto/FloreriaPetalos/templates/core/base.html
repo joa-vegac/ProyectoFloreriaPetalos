@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>{% block titulo %}{% endblock titulo %}</title>
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      {% block hojaEstilo %}{% endblock hojaEstilo %}
+</head>
+<body>
+    <header>
+            <div class="container">
+                    <nav>
+                <input type="checkbox" id="nav" class="hidden">
+                <label for="nav" class="nav-btn">
+                      <i></i>
+                      <i></i>
+                      <i></i>
+                </label>
+                <div class="logo">
+                      <a href="{% url 'Inicio' %}">Pétalos</a>
+                </div>
+                <div class="nav-wrapper">
+                      <ul>
+                              <li><a href="{% url 'Catalogo' %}">Catálogo</a></li>
+                              <li><a href="{% url 'Login' %}">Log In</a></li>
+                              <li><a href="{% url 'Formulario' %}">Ingresar productos</a></li>
+                              <li><a href="#">Carro</a></li>
+                      </ul>
+                </div>
+          </nav>
+        </div>
+    </header>
+    
+    <section>
+        {% block contenido %}
+        
+        {% endblock contenido %}
+    </section>
+</body>
+</html>

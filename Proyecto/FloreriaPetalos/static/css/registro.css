@@ -1,0 +1,170 @@
+@import url(../css/base.css);
+
+.registro-box{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    width: 75%;
+    margin: auto;
+    padding: 20px;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+     -ms-animation: fadein 2s; /* Internet Explorer */
+      -o-animation: fadein 2s; /* Opera < 12.1 */
+         animation: fadein 2s;
+}
+
+.registro-img{
+    width: 42%;
+    border: 1px solid rgba(0, 0, 0, 0.288);
+    border-left: 0;
+}
+
+.registro-img img{
+    width: 100%;
+    height: 100%;
+}
+
+.registro-form{
+    width: 58%;
+    border: 1px solid rgba(0, 0, 0, 0.288);
+    border-right: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.registro-form h1{
+    font-weight: 200;
+    letter-spacing: 3px;
+    text-align: center;
+    font-size: 32px;
+    font-family: alegreya;
+}
+
+form{
+    width: 70%;
+    margin: auto;
+}
+
+form div{
+    height: 15px;
+}
+
+input{
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 5px; 
+    width: 100%;
+    font-size: 14px;
+    border:0;
+    border-bottom: 1px solid #3F3F3F;
+    margin: auto;
+}
+
+#btnRegistrarse{
+    background: black;
+    color: white;
+    border: 0;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    padding: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+#btnRegistrarse span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#btnRegistrarse span:after {
+    content: '\1f862';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+    font-size: 15px;
+}
+
+#btnRegistrarse:hover span {
+    padding-right: 25px;
+}
+  
+#btnRegistrarse:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+#ing{
+    color: rgb(66, 66, 66);
+    text-decoration: none;
+    font-size: 17px;
+    width: 100%;
+}
+
+#ing:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 900px){
+
+    .registro-box{
+        width: 80%;
+        transition: 0.5s;
+    }
+
+    .registro-form h1{
+        font-size: 30px;
+    }
+    
+    form{
+        width: 80%;
+        padding-bottom: 10px; 
+    }
+
+    #ing{
+        font-size: 18px;
+    }
+    
+}
+
+@media screen and (max-width: 700px){
+    .registro-box{
+        width: 90%;
+        padding: 2px;
+    }
+
+    .registro-img{
+        display: none;
+    }
+
+    form{
+        width: 90%;
+        padding-bottom: 10px; 
+    }
+
+    .registro-form{
+        width: 80%;
+        border: 1px solid rgba(0, 0, 0, 0.288);
+    }
+  
+    form div{
+        height: 20px;
+    }
+    
+    #ing{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .registro-form h1{
+        letter-spacing: 3px;
+        font-size: 23px;
+    }
+}

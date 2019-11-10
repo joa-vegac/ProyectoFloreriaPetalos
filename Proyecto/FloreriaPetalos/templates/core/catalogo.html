@@ -1,0 +1,110 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+    Florería Pétalos | Galería de productos
+{% endblock titulo %}
+
+{% load static %}
+
+{% block hojaEstilo %}
+<link rel="stylesheet" href="{% static 'css/catalogo.css' %}">
+{% endblock hojaEstilo %}
+
+{% block contenido %}
+        <div class="contenido">
+            <div class="img-area">
+                <div class="box">
+                <img src="{% static 'img/Producto1.png' %}" alt="">
+                <h1>Ramo de 12 rosas rojas y Gypsuphylia</h1>
+                <h2 id="precio">$29.900</h2>
+                <p>Bello ramo compuesto por 12 rosas ecuatorianos y Gypsuphylia 
+                ecuatoriana Envuelto en papel arroz y fina malla, decorado con 
+                un rosetón en 2 tipos de cinta (organza y satin).
+                Medidas del arreglo: Largo 50cm y Diámetro 35cm aprox.
+                </p>
+                <h2>stock</h2>
+                <h2>estado</h2>
+                <h3>Agregar al carro</h3>
+                </div>
+
+            <div class="box">
+                    <img src="{% static 'img/Producto2.jpg' %}" alt="">
+                    <h1>Ramo de Calas</h1>
+                    <h2 id="precio">$22.900</h2>
+                    <p>
+                    </p>
+                    <h2>stock</h2>
+                    <h2>estado</h2>
+                    <h3>Agregar al carro</h3>
+            </div>
+            <div class="box">
+                    <img src="{% static 'img/Producto3.jpg' %}" alt="">
+                    <h1>Ramo Mix - El Ocaso</h1>
+                    <h2 id="precio">$42.900</h2>
+                    <p>Hermoso ramo mixto compuesto lisiantum, iris, tulipanes y 
+                    lilum, envuelto en delicada malla y atado con cinta de organza.
+                    Dimensiones del arreglo: Alto 50cm y Diámetro 30 cm aprox.
+                    </p>
+                    <h2>stock</h2>
+                    <h2>estado</h2>
+                    <h3>Agregar al carro</h3>
+            </div>
+        
+            <div class="box">
+                    <img src="{% static 'img/Producto4.png' %}" alt="">
+                    <h1>Ramo de 20 Girasoles</h1>
+                    <h2 id="precio">$32.500</h2>
+                    <p>Rustico Ramo de  girasoles medianos acompañado por solidago importado y 
+                    fino folaje verde, envuelto en arpillera rustica.
+                    </p>
+                    <h2>stock</h2>
+                    <h2>estado</h2>
+                    <h3>Agregar al carro</h3>
+            </div>
+
+            <div class="box">
+                    <img src="{% static 'img/Producto5.jpg' %}" alt="">
+                    <h1>Ramo 12 Rosas rosadas y Eucaliptus</h1>
+                    <h2 id="precio">$26.900</h2>
+                    <p>Hermoso ramo de 12 rosas ecuatorianas en tono rosado, 
+                        envuelto  en papel arroz y fina malla, decorado con un 
+                        rosetón de satin.
+                        Incluye tarjeta de saludo para que puedas enviar algún 
+                        mensaje optativo.
+                        Medidas del arreglo: Largo 50cm y Diámetro 35cm aprox
+                    </p>
+                    <h2>stock</h2>
+                    <h2>estado</h2>
+                    <h3>Agregar al carro</h3>
+            </div>
+
+            <div class="box">
+                <img src="{% static 'img/Producto6.jpg' %}" alt="">
+                <h1>Ramo de 12 rosas azules y Gypsuphylia</h1>
+                <h2 id="precio">$29.900</h2>
+                <p>Bello ramo compuesto por 12 rosas ecuatorianos y Gypsuphylia 
+                ecuatoriana Envuelto en papel arroz y fina malla, decorado con 
+                un rosetón en 2 tipos de cinta (organza y satin).
+                </p>
+                <h2>stock</h2>
+                <h2>estado</h2>
+                <h3>Agregar al carro</h3>
+            </div>
+
+            <div class="box">
+                <img src="{% static 'img/Producto7.jpg' %}" alt="">
+                <h1>Ramo de 10 Tulipanes</h1>
+                <h2 id="precio">$22.900</h2>
+                <p>Hermoso ramo de 10 tulipanes envueltos en papel de arroz 
+                decorado con un rosetón del mismo color de las flores,
+                opción de colores : Amarillos,Blanco,y Rojo anaranjado.
+                Dimensiones: alto 40 cms ancho 28 cms
+                </p>
+                <h2>stock</h2>
+                <h2>estado</h2>
+                <h3>Agregar al carro</h3>
+            </div>
+        
+        </div>
+    </div>
+{% endblock contenido %}

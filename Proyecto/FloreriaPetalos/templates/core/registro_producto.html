@@ -1,0 +1,56 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+    Florería Pétalos | Registro de flores
+{% endblock titulo %}
+
+{% load static %}
+
+{% block hojaEstilo %}
+      <link rel="stylesheet" href="{% static 'css/formulario.css' %}">
+{% endblock hojaEstilo %}
+
+{% block contenido %}
+<div class="contenido">
+    <div class="form-producto">
+        <form action="">
+            <table>
+                <tr>
+                    <td colspan="2" id="titulo">Registro de productos</td>
+                </tr>
+                <tr>
+                    <td id="t">Nombre del producto</td>
+                    <td><input type="text" id="txtFlor" name="txtFlor" placeholder="Ingrese nombre"></td>
+                </tr>
+                <tr>
+                    <td id="t">Valor</td>
+                    <td><input type="number" id="txtValor" name="txtValor" min="1"  placeholder="Ingrese valor"></td>
+                </tr>
+                <tr>
+                    <td id="t">Descripción</td>
+                    <td><textarea name="txtDesc" id="txtDesc" name="txtDesc" placeholder="Ingrese descripción"></textarea></td>
+                </tr>
+                <tr>
+                    <td id="t">Disponible</td>
+                    <td><input type="radio" id="estado" name="estado"></td>
+                </tr>
+                <tr>
+                    <td id="t">No Disponible</td>
+                    <td><input type="radio" id="estado" name="estado"></td>
+                </tr>
+                <tr>
+                    <td id="t">Stock</td>
+                    <td><input type="number" id="txtStock" name="txtStock" min="1" placeholder="Ingrese stock"></td>
+                </tr>
+                <tr>
+                    <td id="t">Seleccione imagen del producto</td>
+                    <td><input type="file" name="imagen" id="imagen"></td>
+                </tr>
+                <tr>
+                    <td id="botontd" colspan="2"><input id="boton" type="submit" value="Aceptar"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+{% endblock contenido %}

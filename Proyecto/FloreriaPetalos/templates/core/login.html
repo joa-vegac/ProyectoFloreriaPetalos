@@ -1,0 +1,38 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+    Florería Pétalos | Iniciar Sesión
+{% endblock titulo %}
+
+{% load static %}
+
+{% block hojaEstilo %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock hojaEstilo %}
+
+{% block contenido %}
+        <div class="contenido">
+            <div class="login-box">
+
+                <div class="login-img">
+                    <img src="{% static 'img/Login.jpg' %}">
+                </div>
+
+                <div class="login-form">
+                    <h1>Iniciar Sesión</h1>
+
+                    <form action="#">
+                        <td>Correo Electrónico</td>
+                        <input type="email" placeholder="algo@ejemplo.com" id="txtEmail" name="txtEmail" required>
+                        <div></div>
+                        <td>Contraseña</td>
+                        <input type="password" placeholder="**********" id="txtPass" name="txtPass" required>
+                        <a id="rpass" href="#">Olvide mi contraseña</a>
+
+                        <button id="btnIngresar"><span>Ingresar </span></button>
+                        <a id="reg" href="{% url 'Registro' %}">Registrate aquí</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock contenido %}

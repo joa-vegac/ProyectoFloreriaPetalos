@@ -1,0 +1,22 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+      Florería Pétalos
+{% endblock titulo %}
+
+{% load static %}
+
+{% block hojaEstilo %}
+      <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock hojaEstilo %}
+
+{% block contenido %}
+      <div class="contenido">
+            <div class="index-info">
+                  <div class="banner">
+                        <img src="{% static 'img/portada.jpg' %}">
+                        <h1>Regala cariño, con Florería Pétalos.</h1>
+                  </div>
+            </div>
+      </div>
+{% endblock contenido %}
