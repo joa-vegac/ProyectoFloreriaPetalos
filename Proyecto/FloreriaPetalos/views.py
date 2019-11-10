@@ -5,18 +5,10 @@ from django.contrib.auth.decorators import login_required
 def login(request):
     return render(request, 'core/login.html')
 
-def login_acceso(request):
-    if request.POST:
-        email=request.POST.get("txtEmail")
-        password=request.POST.get("txtPass")
-
-        user = authenticate(request, email=email, password=password)
-
-@login_required(login_url='/login/')
-
 def index(request):
     return render(request, 'core/index.html')
 
+@login_required(login_url='/login/')
 def catalogo(request):
     return render(request, 'core/catalogo.html')
 
