@@ -1,28 +1,39 @@
 from django.shortcuts import render
+from .models import Producto
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+def registro(request):
+     return render(request, 'core/registro.html')
+
 def login(request):
     return render(request, 'core/login.html')
-
-def login_acceso(request):
-    if request.POST:
-        email=request.POST.get("txtEmail")
-        password=request.POST.get("txtPass")
-
-        user = authenticate(request, email=email, password=password)
-
-@login_required(login_url='/login/')
 
 def index(request):
     return render(request, 'core/index.html')
 
 def catalogo(request):
     return render(request, 'core/catalogo.html')
-
-def registro(request):
-    return render(request, 'core/registro.html')
-
-@login_required(login_url='/login/')    
+  
 def registro_producto(request):
-    return render(request, 'core/registro_producto.html')
+    if request.POST:
+        accion=request.POST.get("RegProduct")
+        if accion=='aceptar':            
+            nombre=request.POST.get("Name")
+            valor=request.POST.get("Value")
+            desc=request.POST.get("Desc")
+            image=request.FILES.get("Image")
+            stock=request.POST.get("Stock")
+
+            product=Producto(
+                nombre=nombre,
+                valor=valor,
+                desc=desc,
+                image=image,
+                stock=stock,
+            )
+            product.save()
+    return render(request,'core/registro_producto.html')
+    
+

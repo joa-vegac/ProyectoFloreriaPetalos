@@ -21,12 +21,13 @@
                 <div class="login-form">
                     <h1>Iniciar Sesión</h1>
 
-                    <form action="#">
-                        <td>Correo Electrónico</td>
-                        <input type="email" placeholder="algo@ejemplo.com" id="txtEmail" name="txtEmail" required>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <td>Nombre de usuario</td>
+                        <input type="text" placeholder="Nombre de usuario" id="Username" name="Username" required>
                         <div></div>
                         <td>Contraseña</td>
-                        <input type="password" placeholder="**********" id="txtPass" name="txtPass" required>
+                        <input type="password" placeholder="* * * * * " id="Password" name="Password" required>
                         <a id="rpass" href="#">Olvide mi contraseña</a>
 
                         <button id="btnIngresar"><span>Ingresar </span></button>

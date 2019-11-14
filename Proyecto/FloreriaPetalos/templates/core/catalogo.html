@@ -104,6 +104,18 @@
                 <h2>estado</h2>
                 <h3>Agregar al carro</h3>
             </div>
+
+
+            {% for f in lista %}       
+            <div class="box">
+            <img src="{{f.image.url}}" alt="">
+            <h1>{{f.nombre}} </h1>
+            <h2>{{f.valor}}</h2>
+            <p>{{f.desc}}</p>
+            <h2>{{f.stock}}</h2>
+            <h3>Agregar al carro</h3>
+        </div>
+        {% endfor %}
         
         </div>
     </div>

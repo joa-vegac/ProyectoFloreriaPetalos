@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import *
+from .views import index, catalogo, login, registro, registro_producto 
 
 urlpatterns = [
     path('',index, name='Inicio'),

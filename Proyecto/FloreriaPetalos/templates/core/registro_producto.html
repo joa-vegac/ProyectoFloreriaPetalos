@@ -13,41 +13,34 @@
 {% block contenido %}
 <div class="contenido">
     <div class="form-producto">
-        <form action="">
+        <form id="frmProdct" method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
             <table>
                 <tr>
                     <td colspan="2" id="titulo">Registro de productos</td>
                 </tr>
                 <tr>
                     <td id="t">Nombre del producto</td>
-                    <td><input type="text" id="txtFlor" name="txtFlor" placeholder="Ingrese nombre"></td>
+                    <td><input type="text" id="Name" name="Name" placeholder="Ingrese nombre"></td>
                 </tr>
                 <tr>
                     <td id="t">Valor</td>
-                    <td><input type="number" id="txtValor" name="txtValor" min="1"  placeholder="Ingrese valor"></td>
+                    <td><input type="number" id="Value" name="Value" min="1"  placeholder="Ingrese valor"></td>
                 </tr>
                 <tr>
                     <td id="t">Descripción</td>
-                    <td><textarea name="txtDesc" id="txtDesc" name="txtDesc" placeholder="Ingrese descripción"></textarea></td>
-                </tr>
-                <tr>
-                    <td id="t">Disponible</td>
-                    <td><input type="radio" id="estado" name="estado"></td>
-                </tr>
-                <tr>
-                    <td id="t">No Disponible</td>
-                    <td><input type="radio" id="estado" name="estado"></td>
+                    <td><textarea name="Desc" id="Desc" placeholder="Ingrese descripción"></textarea></td>
                 </tr>
                 <tr>
                     <td id="t">Stock</td>
-                    <td><input type="number" id="txtStock" name="txtStock" min="1" placeholder="Ingrese stock"></td>
+                    <td><input type="number" id="Stock" name="Stock" min="1" placeholder="Ingrese stock"></td>
                 </tr>
                 <tr>
                     <td id="t">Seleccione imagen del producto</td>
-                    <td><input type="file" name="imagen" id="imagen"></td>
+                    <td><input type="file" name="Image" id="Image"></td>
                 </tr>
                 <tr>
-                    <td id="botontd" colspan="2"><input id="boton" type="submit" value="Aceptar"></td>
+                    <td id="botontd" colspan="2"><input id="RegProduct" name="RegProduct" type="submit" value="Aceptar"></td>
                 </tr>
             </table>
         </form>
