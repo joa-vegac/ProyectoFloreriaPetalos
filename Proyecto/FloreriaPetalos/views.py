@@ -1,9 +1,7 @@
 from django.shortcuts import render
 from .models import Producto
-from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
 def registro(request):
      return render(request, 'core/registro.html')
 
