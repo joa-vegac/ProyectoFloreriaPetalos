@@ -46,16 +46,6 @@
     font-weight: 400;
 }
 
-
-.box h2{
-    margin: 0;
-    font-size: 13px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #253122;
-    font-weight: 500;
-    padding: 0 5px;
-}
-
 #precio{
     margin: 0;
     font-size: 90%;
@@ -84,6 +74,7 @@
     transition: 0.3s;
     border-bottom: 1px solid #818892;
     color: #004b77;
+    cursor: pointer;
 }
 
 .box p{

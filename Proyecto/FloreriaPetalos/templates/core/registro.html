@@ -15,7 +15,8 @@
             <div class="registro-box">
                 <div class="registro-form">
                     <h1>Crea tu cuenta</h1>
-                    <form action="#">
+                    <form method="POST">
+                        {% csrf_token %}
                         <td>Nombre completo:</td>
                         <input type="text" id="txtNombre" placeholder="Nombre Apellido" required>
                         <div></div>

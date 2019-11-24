@@ -91,31 +91,17 @@
                 <h3>Agregar al carro</h3>
             </div>
 
+            {% for p in productos%}       
             <div class="box">
-                <img src="{% static 'img/Producto7.jpg' %}" alt="">
-                <h1>Ramo de 10 Tulipanes</h1>
-                <h2 id="precio">$22.900</h2>
-                <p>Hermoso ramo de 10 tulipanes envueltos en papel de arroz 
-                decorado con un rosetón del mismo color de las flores,
-                opción de colores : Amarillos,Blanco,y Rojo anaranjado.
-                Dimensiones: alto 40 cms ancho 28 cms
-                </p>
-                <h2>stock</h2>
-                <h2>estado</h2>
+                <img src="{{p.imagen.url}}" alt="">
+                <h1>{{p.nombre}} </h1>
+                <h2 style="font-size: 13px">${{p.valor}}</h2>
+                <p>{{p.descripcion}}</p>
+                <h2>stock: {{p.stock}}</h2>
+                <h2>estado: </h2>
                 <h3>Agregar al carro</h3>
             </div>
-
-
-            {% for f in lista %}       
-            <div class="box">
-            <img src="{{f.image.url}}" alt="">
-            <h1>{{f.nombre}} </h1>
-            <h2>{{f.valor}}</h2>
-            <p>{{f.desc}}</p>
-            <h2>{{f.stock}}</h2>
-            <h3>Agregar al carro</h3>
-        </div>
-        {% endfor %}
+            {% endfor %}
         
         </div>
     </div>
