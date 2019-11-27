@@ -48,13 +48,21 @@
 
 #precio{
     margin: 0;
-    font-size: 90%;
-    color: #586842;
+    font-size: 18px;
+    color: #253122;
     font-weight: 500;
     font-style: italic;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+    padding: 0 5px 5px;
 }
 
+#stock, #estado{
+    margin: 0;
+    font-size: 16px;
+    color: #242E3A;
+    font-weight: 600;
+    padding: 0 5px 5px;
+}
 
 .box h3{
     margin: auto;

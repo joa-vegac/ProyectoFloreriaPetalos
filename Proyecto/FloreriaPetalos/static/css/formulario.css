@@ -96,6 +96,11 @@ textarea{
     height: 50px;
 }
 
+#resp{
+    margin: auto;
+    width: 60%;
+}
+
 @media screen and (max-width: 900px){
     .form-producto{
         width: 80%;

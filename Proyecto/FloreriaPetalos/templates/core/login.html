@@ -24,13 +24,13 @@
                     <form method="POST">
                         {% csrf_token %}
                         <td>Nombre de usuario</td>
-                        <input type="text" placeholder="Nombre de usuario" id="Username" name="Username" required>
+                        <input type="text" placeholder="Ingrese nombre de usuario" id="Username" name="Username" required>
                         <div></div>
                         <td>Contraseña</td>
-                        <input type="password" placeholder="* * * * * " id="Password" name="Password" required>
+                        <input type="password" placeholder="* * * * * * *" id="Password" name="Password" required>
                         <a id="rpass" href="#">Olvide mi contraseña</a>
 
-                        <button id="btnIngresar"><span>Ingresar </span></button>
+                        <button type="submit" id="btnIngresar"><span>Ingresar </span></button>
                         <a id="reg" href="{% url 'Registro' %}">Registrate aquí</a>
                     </form>
                 </div>

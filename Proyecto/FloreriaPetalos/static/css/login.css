@@ -119,7 +119,7 @@ input{
 }
 
 #reg:hover{
-    text-decoration: underline;
+    letter-spacing: 0.5;
 }
 
 @media screen and (max-width: 870px){

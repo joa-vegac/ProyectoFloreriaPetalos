@@ -40,12 +40,16 @@
                     <td><input type="file" name="image" id="image"></td>
                 </tr>
                 <tr>
-                    <td id="botontd" colspan="2">
+                    <td id="botontd">
                         <input type="submit" value="registrar" name=accion>
+                    </td>
+                    <td id="botontd">
+                        <input type="submit" value="eliminar" name=accion>
                     </td>
                 </tr>
             </table>
         </form>
     </div>
+    <div id="resp">{{msg}}</div>
 </div>
 {% endblock contenido %}
