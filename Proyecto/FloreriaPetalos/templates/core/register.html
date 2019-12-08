@@ -7,7 +7,7 @@
 {% load static %}
 
 {% block hojaEstilo %}
-<link rel="stylesheet" href="{% static 'css/registro.css' %}">
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
 {% endblock hojaEstilo %}
 
 {% block contenido %}
@@ -17,16 +17,13 @@
                     <h1>Crea tu cuenta</h1>
                     <form method="POST">
                         {% csrf_token %}
-                        <td>Nombre completo:</td>
-                        <input type="text" id="txtNombre" placeholder="Nombre Apellido" required>
-                        <div></div>
-                        <td>Correo Electrónico</td>
-                        <input type="email" placeholder="Ingrese su correo electrónico" id="txtEmail" required>
+                        <td>Nombre de usuario</td>
+                        <input type="text" placeholder="Registre un nombre de usuario" id="username" name="username" required>
                         <div></div>
                         <td>Contraseña</td>
-                        <input type="password" placeholder="Ingrese una contraseña" id="txtPass" required>
+                        <input type="password" placeholder="Registre una contraseña" id="password" name="password" required>
                         <button id="btnRegistrarse"><span>Registrarse </span></button>
-                        <a id="ing" href="{% url 'Login' %}">¿Ya tienes una cuenta? Inicia Sesión</a>
+                        <div class="ing"><a id="ing" href="{% url 'Login' %}">¿Ya tienes una cuenta? Inicia Sesión</a></div>
                     </form>
                 </div>
 

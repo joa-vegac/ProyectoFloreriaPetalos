@@ -1,4 +1,11 @@
 from django.contrib import admin
-from .models import Producto
+from .models import Estado, Producto
 
-admin.site.register(Producto)
+class ProductoAdmin(admin.ModelAdmin):
+    list_display = ["nombre", "valor", "descripcion", "stock", "estado"]
+    search_fields = ["nombre"]
+    list_filter = ["estado"]
+    list_per_page = 12
+
+admin.site.register(Estado)
+admin.site.register(Producto, ProductoAdmin)

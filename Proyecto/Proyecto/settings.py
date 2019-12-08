@@ -26,7 +26,7 @@ SECRET_KEY = '$%^v@%*jeu^6g9%pvqo)n3yed4qbrhw1yzwa4x-%yd4ipqsknx'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 # Application definition
 

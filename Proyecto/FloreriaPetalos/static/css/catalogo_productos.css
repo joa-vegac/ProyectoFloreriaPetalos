@@ -48,7 +48,7 @@
 
 #precio{
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
     color: #253122;
     font-weight: 500;
     font-style: italic;
@@ -66,10 +66,10 @@
 
 .box h3{
     margin: auto;
-    font-size: 14px;
+    font-size: 15px;
     border-bottom: 1px solid #D5D9DA;
     padding-top: 5px; 
-    width: 80%;
+    width: 100%;
     text-align: center;
     color: #234933;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -86,13 +86,14 @@
 }
 
 .box p{
-    font-size: 13px;
+    font-size: 14px;
     margin-top: 5px;
     margin-bottom: 0;
     padding: 0 5px 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #3F3F3F;
     font-weight: 400;
+    font-style: italic;
 }
 
 @media screen and (max-width: 800px) {

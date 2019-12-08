@@ -7,7 +7,7 @@
 {% load static %}
 
 {% block hojaEstilo %}
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/iniciosesion.css' %}">
 {% endblock hojaEstilo %}
 
 {% block contenido %}
@@ -21,7 +21,7 @@
                 <div class="login-form">
                     <h1>Iniciar Sesión</h1>
 
-                    <form method="POST">
+                    <form method="POST" action="{% url 'loginaccess' %}">
                         {% csrf_token %}
                         <td>Nombre de usuario</td>
                         <input type="text" placeholder="Ingrese nombre de usuario" id="Username" name="Username" required>
@@ -31,7 +31,9 @@
                         <a id="rpass" href="#">Olvide mi contraseña</a>
 
                         <button type="submit" id="btnIngresar"><span>Ingresar </span></button>
-                        <a id="reg" href="{% url 'Registro' %}">Registrate aquí</a>
+                        
+                        <div class="reg"><a id="reg" href="{% url 'Registro' %}">Registrate aquí</a></div>
+                        
                     </form>
                 </div>
             </div>

@@ -1,0 +1,56 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+    Florería Pétalos | Listado de productos
+{% endblock titulo %}
+
+{% load static %}
+
+{% block hojaEstilo %}
+<link rel="stylesheet" href="{% static 'css/listadoproductos.css' %}">
+{% endblock hojaEstilo %}
+
+{% block contenido %}
+<div class="contenido">
+    <div class="listado-box">
+        <table cellspacing="0" id="listado-tabla">
+            <tr>
+                <td colspan="6"  class="title">
+                    Listado de productos
+                </td>
+                <td colspan="2" class="enlace">
+                    <a href="{% url 'Formulario' %}">Registrar nuevo producto</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Imagen</th>
+                <th>Nombre </th>
+                <th>Valor </th>
+                <th>Descripción </th>
+                <th>Stock </th>
+                <th>Estado </th>
+                <th></th>
+                <th></th>
+            </tr>
+    
+            {% for p in productos %}
+            <tr>
+                <td><img src="{{p.imagen.url}}"></td>
+                <td>{{p.nombre}}</td>
+                <td>${{p.valor}}</td>
+                <td style="max-width: 250px;">{{p.descripcion}}</td>
+                <td>{{p.stock}}</td>
+                <td>{{p.estado}}</td>
+                <td class="accion">
+                    <a href="{% url 'ModificarProducto' p.id %}"><input type="submit" id="btn-modificar" value="Modificar"></a>
+                </td>
+                <td class="accion">
+                    <a href="{% url 'EliminarProducto' p.id %}"><input type="submit" id="btn-eliminar" value="Eliminar"></a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock contenido %}

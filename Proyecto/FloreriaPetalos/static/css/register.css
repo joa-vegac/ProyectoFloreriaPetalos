@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    width: 75%;
+    width: 55%;
     margin: auto;
     padding: 20px;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
@@ -16,7 +16,7 @@
 }
 
 .registro-img{
-    width: 42%;
+    width: 45%;
     border: 1px solid rgba(0, 0, 0, 0.288);
     border-left: 0;
 }
@@ -27,7 +27,7 @@
 }
 
 .registro-form{
-    width: 58%;
+    width: 55%;
     border: 1px solid rgba(0, 0, 0, 0.288);
     border-right: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -37,13 +37,14 @@
     font-weight: 200;
     letter-spacing: 3px;
     text-align: center;
-    font-size: 32px;
+    font-size: 28px;
     font-family: alegreya;
 }
 
 form{
-    width: 70%;
+    width: 80%;
     margin: auto;
+    font-size: 16px;
 }
 
 form div{
@@ -55,7 +56,7 @@ input{
     padding-top: 10px;
     padding-bottom: 5px; 
     width: 100%;
-    font-size: 14px;
+    font-size: 14.5px;
     border:0;
     border-bottom: 1px solid #3F3F3F;
     margin: auto;
@@ -88,7 +89,7 @@ input{
     top: 0;
     right: -20px;
     transition: 0.5s;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 #btnRegistrarse:hover span {
@@ -100,18 +101,48 @@ input{
     right: 0;
 }
 
-#ing{
-    color: rgb(66, 66, 66);
-    text-decoration: none;
-    font-size: 17px;
+.ing{
     width: 100%;
+    margin-top: 5px;
+    text-align: center;
+    border-top: 1px solid rgb(83, 30, 42) ;
+}
+
+#ing{
+    color: rgb(83, 30, 42);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1.5;
 }
 
 #ing:hover{
     text-decoration: underline;
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 1060px){
+
+    .registro-box{
+        width: 65%;
+        transition: 0.5s;
+    }
+
+    .registro-form h1{
+        font-size: 27px;
+    }
+    
+    form{
+        width: 80%;
+        padding-bottom: 10px; 
+    }
+
+    #ing{
+        font-size: 18px;
+    }
+    
+}
+
+@media screen and (max-width: 850px){
 
     .registro-box{
         width: 80%;
@@ -119,7 +150,7 @@ input{
     }
 
     .registro-form h1{
-        font-size: 30px;
+        font-size: 27px;
     }
     
     form{
