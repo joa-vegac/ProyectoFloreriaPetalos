@@ -1,52 +1,35 @@
 from django.shortcuts import render, redirect
 from .models import Estado, Producto
+from .forms import customuserform, ProductoForm
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, logout, login as auth_login
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required, permission_required
 
-def login(request):
-    return render(request, 'core/login.html')
-
-def cerrar_sesion(request):
-    logout(request)
-    return render(request, "core/login.html")
-
-def login_acceso(request):
-    if request.POST:
-        usuario = request.POST.get("Username")
-        contrasena = request.POST.get("Password")
-
-        us = authenticate(request, username=usuario, password=contrasena)
-        if us is not None and us.is_active:
-            auth_login(request, us)
-            return render(request, "core/index.html")
-    return render(request, "core/login.html")
-    
 def register(request):
-    form = UserCreationForm()
-    if request.method == "POST":
-        form = UserCreationForm(data=request.POST)
+    data = {
+        'form':customuserform()
+    }
+    if request.method == 'POST':
+        formulario = customuserform(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            username = formulario.cleaned_data['username']
+            password = formulario.cleaned_data['password1']
 
-        if form.is_valid():
-            user = form.save()
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect(to="Inicio")
+    return render(request, 'registration/register.html', data)
 
-            if user is not None:
-                auth_login(request, user)
-                return render(request, "core/index.html")
-    return render(request, 'core/register.html')
-
-@login_required(login_url='/login/')
 def index(request):
     return render(request, 'core/index.html')
 
-@login_required(login_url='/login/')
+@login_required
 def catalogo(request):
     productos=Producto.objects.all()
     return render(request, 'core/catalogo.html',{'productos': productos})
 
-@login_required(login_url='/login/')
+@permission_required('FloreriaPetalos/add_producto')
 def registro_producto(request):
     estados = Estado.objects.all()
 
@@ -74,48 +57,81 @@ def registro_producto(request):
         return render(request, 'core/registro_producto.html', variables)
     return render(request,'core/registro_producto.html', variables)
     
-
-@login_required(login_url='/login/')
+@permission_required('FloreriaPetalos/add_producto')
 def listado_productos(request):
+    estados = Estado.objects.all()
     productos = Producto.objects.all()
+    stock = 0
+
     data = {
-        'productos':productos
+        'productos':productos,
+        'estados': estados
     }
-    return render(request, 'core/listado_productos.html', data)
-    
-@login_required(login_url='/login/')
+
+    if request.POST.get('stock'):
+        stock = int(request.POST.get('stock'))
+        productos = productos.filter(stock__gte=stock)
+
+    return render(request, 'core/listado_productos.html', data, {'stock':stock})
+
+@permission_required('FloreriaPetalos/add_producto')
 def eliminar_producto(request, id):
     product = Producto.objects.get(id = id)
     product.delete()
 
     return redirect(to="ListadoProductos")
 
-@login_required(login_url='/login/')
+@permission_required('FloreriaPetalos/add_producto')
 def modificar_producto(request, id):
     product = Producto.objects.get(id = id)
-    estados=Estado.objects.all()
-
-    variables = {
-        'estados':estados,
-        'producto':product
+    data= {
+        'form': ProductoForm(instance=product)
     }
 
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=product, files=request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            data['msg'] = "Producto modificado correctamente"
+            data['form'] = formulario
+
+    return render(request, 'core/modificar_producto.html', data)
+
+@permission_required('FloreriaPetalos/add_producto')
+def eliminar_pelicula(request,id):
+    peli=Pelicula.objects.get(name=id)
+    mensaje=''
+    try:
+        peli.delete()
+        mensaje='Pelicula Eliminada'
+    except:
+        mensaje='Problemas de Eliminacion Pelicula'
+
+    pelis=Pelicula.objects.all()
+    return render(request,'core/galeria.html',{'peliculas':pelis,'msg':mensaje})
+
+@permission_required('FloreriaPetalos/add_producto')
+def formulario(request):
+    catego=Categoria.objects.all()# select * from categoria
     if request.POST:
-        product = Producto()
-        product.id = request.POST.get("txtid")
-        product.nombre = request.POST.get("name")
-        product.valor = request.POST.get("value")
-        product.descripcion = request.POST.get("desc")
-        product.stock = request.POST.get("stock")
-        product.imagen = request.FILES.get("image")
-        estado = Estado()
-        estado.id = request.POST.get("cboestados")
-        product.estado = estado
-
-        try:
-            product.save()
-            variables['msg'] = 'Producto modificado correctamente'
-        except:
-            variables['msg'] = 'No se pudo modificar el producto'
-
-    return render(request, 'core/modificar_producto.html', variables)
+        titulo=request.POST.get("txtTitulo")
+        duracion=request.POST.get("txtDuracion")
+        precio=request.POST.get("txtPrecio")
+        descripcion=request.POST.get("txtDescripcion")
+        categoria=request.POST.get("cboCategoria")
+        #ubicamos de la tabla (modelo) Categoria el reg. con "name" igual al valor
+        #recuperado del combo "cboCategoria"
+        obj_categoria=Categoria.objects.get(name=categoria)
+        imagen=request.FILES.get("imagen")
+        #crear una instancia del modelo Pelicula
+        pelicula=Pelicula(
+            name=titulo,
+            duracion=duracion,
+            precio=precio,
+            descripcion=descripcion,
+            categoria=obj_categoria,
+            imagen=imagen
+        )
+        pelicula.save() #se graba el contenido del objeto pelicula
+        return render(request,'core/formulario.html',{'categorias':catego,'msg':'grabo'})
+    return render(request,'core/formulario.html',{'categorias':catego})

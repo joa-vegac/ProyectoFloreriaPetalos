@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    width: 55%;
+    width: 60%;
     margin: auto;
     padding: 20px;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
@@ -35,15 +35,16 @@
 
 .login-form h1{
     font-weight: 200;
-    letter-spacing: 3px;
     text-align: center;
-    font-size: 35px;
+    font-size: 25px;
     font-family: alegreya;
 }
 
 form{
-    width: 70%;
+    width: 90%;
     margin: auto;
+    font-size: 14px;
+    text-align: left;
 }
 
 form div{
@@ -55,14 +56,14 @@ input{
     padding-top: 10px;
     padding-bottom: 5px; 
     width: 100%;
-    font-size: 15px;
+    font-size: 14px;
     border:0;
     border-bottom: 1px solid rgb(66, 66, 66);
     margin: auto;
 }
 
 td{
-    font-size: 16px;
+    font-size: 14px;
 }
 
 #rpass{
@@ -117,7 +118,7 @@ td{
 
 .reg{
     width: 100%;
-    margin-top: 5px;
+    margin-top: 10px;
     text-align: center;
     border-top: 1px solid rgb(83, 30, 42) ;
 }
@@ -137,7 +138,7 @@ td{
 @media screen and (max-width: 1000px){
 
     .login-box{
-        width: 60%;
+        width: 65%;
     }
     
     form div{

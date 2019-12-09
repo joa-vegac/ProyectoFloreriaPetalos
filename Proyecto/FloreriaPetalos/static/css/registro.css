@@ -2,12 +2,9 @@
 
 .registro-box{
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    width: 55%;
+    width: 90%;
     margin: auto;
-    padding: 20px;
+    padding: 10px;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 2s; /* Firefox < 16 */
      -ms-animation: fadein 2s; /* Internet Explorer */
@@ -15,62 +12,54 @@
          animation: fadein 2s;
 }
 
-.registro-img{
-    width: 45%;
-    border: 1px solid rgba(0, 0, 0, 0.288);
-    border-left: 0;
-}
-
-.registro-img img{
-    width: 100%;
-    height: 100%;
-}
-
 .registro-form{
-    width: 55%;
-    border: 1px solid rgba(0, 0, 0, 0.288);
-    border-right: 0;
+    width: 80%;
+    justify-content: center;
+    margin: auto;
+    font-size: 14px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.registro-form h1{
+h1{
     font-weight: 200;
-    letter-spacing: 3px;
     text-align: center;
-    font-size: 28px;
+    font-size: 25px;
     font-family: alegreya;
 }
 
-form{
-    width: 80%;
-    margin: auto;
-    font-size: 16px;
+table{
+    text-align: left;
 }
 
-form div{
-    height: 15px;
-}
-
-input{
-    display: block;
-    padding-top: 10px;
-    padding-bottom: 5px; 
-    width: 100%;
-    font-size: 14.5px;
+input{ 
+    width: 70%;
+    margin-bottom: 5px;
+    font-size: 14px;
     border:0;
-    border-bottom: 1px solid #3F3F3F;
-    margin: auto;
+    border-bottom: 1px solid rgb(66, 66, 66);
 }
+
+form{
+    width: 100%;
+    margin: auto;
+    font-size: 13px;
+}
+
+.links{
+    margin: auto;
+    width: 60%;
+}
+
 
 #btnRegistrarse{
     background: black;
-    color: white;
-    border: 0;
     width: 100%;
+    height: 30px;
+    color: white;
+    margin: auto;
+    border: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
-    padding: 8px;
-    margin-top: 20px;
     cursor: pointer;
     transition: all 0.5s;
 }
@@ -89,7 +78,7 @@ input{
     top: 0;
     right: -20px;
     transition: 0.5s;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 #btnRegistrarse:hover span {
@@ -106,6 +95,7 @@ input{
     margin-top: 5px;
     text-align: center;
     border-top: 1px solid rgb(83, 30, 42) ;
+    height: 30px;
 }
 
 #ing{
@@ -123,7 +113,7 @@ input{
 @media screen and (max-width: 1060px){
 
     .registro-box{
-        width: 65%;
+        width: 95%;
         transition: 0.5s;
     }
 
@@ -132,7 +122,7 @@ input{
     }
     
     form{
-        width: 80%;
+        width: 100%;
         padding-bottom: 10px; 
     }
 
@@ -145,16 +135,20 @@ input{
 @media screen and (max-width: 850px){
 
     .registro-box{
-        width: 80%;
+        width: 95%;
         transition: 0.5s;
     }
 
     .registro-form h1{
         font-size: 27px;
     }
+
+    .registro-form{
+        width: 90%;
+    }
     
     form{
-        width: 80%;
+        width: 100%;
         padding-bottom: 10px; 
     }
 
@@ -166,26 +160,17 @@ input{
 
 @media screen and (max-width: 700px){
     .registro-box{
-        width: 90%;
+        width: 95%;
         padding: 2px;
     }
 
-    .registro-img{
-        display: none;
-    }
-
     form{
-        width: 90%;
+        width: 100%;
         padding-bottom: 10px; 
     }
 
     .registro-form{
-        width: 80%;
-        border: 1px solid rgba(0, 0, 0, 0.288);
-    }
-  
-    form div{
-        height: 20px;
+        width: 90%;
     }
     
     #ing{

@@ -7,72 +7,23 @@
 {% load static %}
 
 {% block hojaEstilo %}
-      <link rel="stylesheet" href="{% static 'css/admin_product.css' %}">
+      <link rel="stylesheet" href="{% static 'css/modificar.css' %}">
 {% endblock hojaEstilo %}
 
 {% block contenido %}
-<div class="contenido">
-    <div class="form-producto">
-        <form id="formProductos" method="POST" action="" enctype="multipart/form-data">
-            {% csrf_token %}
-                <table>
-                <input type="hidden" name="txtid" id="txtid" value="{{producto.id}}">
-                        <tr>
-                            <td colspan="2" id="titulo">Modificar información de producto</td>
-                        </tr>
-                        <tr>
-                            <td id="t">Nombre del producto</td>
-                            <td><input type="text" id="name" name="name" placeholder="Ingrese nombre" value="{{ producto.nombre }}" required></td>
-                        </tr>
-                        <tr>
-                            <td id="t">Valor</td>
-                            <td><input type="number" id="value" name="value" min="0"  placeholder="Ingrese valor" value="{{ producto.valor }}" required></td>
-                        </tr>
-                        <tr>
-                            <td id="t">Descripción</td>
-                            <td><textarea name="desc" id="desc" placeholder="Ingrese descripción" value="{{ producto.descripcion }}" ></textarea></td>
-                        </tr>
-                        <tr>
-                            <td id="t">Stock</td>
-                            <td><input type="number" id="stock" name="stock" min="0" placeholder="Ingrese stock" value="{{ producto.stock }}" required></td>
-                        </tr>
-                        <tr>
-                            <td id="t" class="estado">Estado</td>
-                            <td>
-                                <Select name="cboestados" id="cboestados">
-                                    <option value="">Seleccionar estado</option>
+<div class="form-producto">
+    <form id="formProductos" method="POST" action="" enctype="multipart/form-data">
+        <h1>Modificar información de producto</h1>    
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
 
-                                    {% for e in estados %}
-                                    
-                                    <option 
-                                        
-                                    {% if e.id == producto.estado.id %}
-                                        {{ 'selected' }}
-                                    {% endif %}
-
-                                    value="{{ e.id }}">{{ e.nombre_estado }}</option>
-                                    
-                                    {% endfor %}
-
-                                </Select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td id="t">Seleccione imagen del producto</td>
-                            <td><input type="file" name="image" id="image" value="{{ producto.imagen.url }}" required></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input class="limp" type="reset" value="Limpiar" name="accion">
-                            </td>
-                            <td>
-                                <input class="boton" id="reg" type="submit" value="Modificar" name=accion>
-                            </td>
-                    </tr>
-                </table>
-            <div id="resp">{{msg}}</div>
-        </form>
-        
-    </div>
+        <div class="buttons">
+            <input class="limp" type="reset" value="Limpiar" name="accion">
+            <input class="boton" id="reg" type="submit" value="Modificar" name=accion>
+        </div>
+        <div id="resp">{{msg}}</div>
+    </form> 
 </div>
 {% endblock contenido %}

@@ -7,7 +7,7 @@
 {% load static %}
 
 {% block hojaEstilo %}
-<link rel="stylesheet" href="{% static 'css/listadoproductos.css' %}">
+<link rel="stylesheet" href="{% static 'css/listado.css' %}">
 {% endblock hojaEstilo %}
 
 {% block contenido %}
@@ -15,11 +15,32 @@
     <div class="listado-box">
         <table cellspacing="0" id="listado-tabla">
             <tr>
-                <td colspan="6"  class="title">
+                <td colspan="3" class="title">
                     Listado de productos
                 </td>
-                <td colspan="2" class="enlace">
-                    <a href="{% url 'Formulario' %}">Registrar nuevo producto</a>
+                <td colspan="2">
+                    <form action="#">
+                        {% csrf_token %}
+                        Stock: <input type="number" name="stock" value="{{stock}}" style="max-width:70px;">
+                        <input type="submit" value="Filtrar">
+                        
+                    </form>
+                </td>
+                <td colspan="3">
+                    <form action="#">
+                        Estado: 
+                        <Select name="cboestados" id="cboestados">
+                            {% for e in estados %}
+                                <option value="{{ e.id }}">{{ e.nombre_estado }}</option>
+                            {% endfor %}
+                        </Select>
+                        <input type="submit" value="Filtrar">
+                        {% csrf_token %}
+                    </form>
+                </td>
+                <td colspan="1" class="enlace">
+
+                    <a href="{% url 'Formulario' %}"><input type="submit" id="btn-registrar" value="Registrar producto"></a>
                 </td>
             </tr>
             <tr>
@@ -29,6 +50,7 @@
                 <th>Descripción </th>
                 <th>Stock </th>
                 <th>Estado </th>
+                <th>Última edición</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -41,11 +63,12 @@
                 <td style="max-width: 250px;">{{p.descripcion}}</td>
                 <td>{{p.stock}}</td>
                 <td>{{p.estado}}</td>
+                <td style="max-width: 180px;">{{p.created_date}}</td>
                 <td class="accion">
                     <a href="{% url 'ModificarProducto' p.id %}"><input type="submit" id="btn-modificar" value="Modificar"></a>
                 </td>
                 <td class="accion">
-                    <a href="{% url 'EliminarProducto' p.id %}"><input type="submit" id="btn-eliminar" value="Eliminar"></a>
+                    <a href="{% url 'EliminarProducto' p.id %}" ><input type="submit" id="btn-eliminar" value="Eliminar"></a>
                 </td>
 
             </tr>

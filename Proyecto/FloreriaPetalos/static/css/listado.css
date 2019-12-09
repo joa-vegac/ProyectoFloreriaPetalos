@@ -1,6 +1,6 @@
 @import url(../css/base.css);
 .listado-box{
-    width: 95%;
+    width: 100%;
     margin: auto;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -17,21 +17,16 @@
 }
 
 .title{
-    font-size: 30px;
+    font-size: 24px;
     font-family: alegreya;
     font-weight: 400;
     background: white;
 
 }
 
-.enlace{
-    background: white;
-    text-align: end;
-}
-
-.enlace a{
-    text-decoration: none;
-    font-size: 16px;
+#btn-registrar{
+    border: 0;
+    font-size: 15px;
     color: white;
     padding: 5px;
     background-color: #326380;
@@ -39,12 +34,13 @@
 }
 
 
-.enlace a:hover{
+#btn-registrar:hover{
     background: #1d3341;
     transition: 1s;
     color: white;
     cursor: pointer;
 }
+
 
 th{
     text-align: start;
@@ -70,22 +66,11 @@ td{
 #listado-tabla img{
     max-width: 40px; 
     max-height: 40px;
-    -webkit-transition:all 1.5s ease;
-    -moz-transition:all 1.5s ease;
-    -o-transition:all 1.5s ease;
-    -ms-transition:all 1.5s ease;
-}
-
-#listado-tabla img:hover{
-    -webkit-transform:scale(3.5);
-    -moz-transform:scale(3.5);
-    -ms-transform:scale(3.5);
-    -o-transform:scale(3.5);
-    transform:scale(3.5);
 }
 
 .accion{
     width: 10%;
+    text-align: right;
 }
 
 .accion #btn-modificar{

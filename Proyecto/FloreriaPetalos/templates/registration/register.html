@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+    Florería Pétalos | Registrarse
+{% endblock titulo %}
+
+{% load static %}
+
+{% block hojaEstilo %}
+<link rel="stylesheet" href="{% static 'css/registro.css' %}">
+{% endblock hojaEstilo %}
+
+{% block contenido %}
+    <div class="registro-box">
+
+        <div class="registro-form">
+            <form method="POST" action="">
+                <h1>Crea tu cuenta</h1>
+                {% csrf_token %}
+                <table>
+                    {{form.as_table}}
+                </table>
+
+                <div class="links">
+                    <button type="submit" id="btnRegistrarse"><span>Registrarse</span></button>
+                    <div class="ing"><a id="ing" href="{% url 'login' %}">¿Ya tienes una cuenta? Inicia Sesión</a></div>
+                </div>
+            </form>          
+        </div>
+    </div>
+{% endblock contenido %}

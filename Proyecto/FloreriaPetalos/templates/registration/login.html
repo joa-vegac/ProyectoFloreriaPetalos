@@ -1,0 +1,34 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+    Florería Pétalos | Iniciar Sesión
+{% endblock titulo %}
+
+{% load static %}
+
+{% block hojaEstilo %}
+<link rel="stylesheet" href="{% static 'css/iniciarsesion.css' %}">
+{% endblock hojaEstilo %}
+
+{% block contenido %}
+        <div class="contenido">
+            <div class="login-box">
+
+                <div class="login-img">
+                    <img src="{% static 'img/Login.jpg' %}">
+                </div>
+
+                <div class="login-form">
+                    <h1>Iniciar Sesión</h1>
+
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        
+                        {{ form }}
+
+                        <button type="submit" id="btnIngresar"><span>Ingresar </span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock contenido %}

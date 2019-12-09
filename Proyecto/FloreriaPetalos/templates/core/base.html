@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>{% block titulo %}{% endblock titulo %}</title>
-      <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      <link rel="stylesheet" href="{% static 'css/baseestilo.css' %}">
       {% block hojaEstilo %}{% endblock hojaEstilo %}
 </head>
 <body>
@@ -24,10 +24,21 @@
                 </div>
                 <div class="nav-wrapper">
                       <ul>
-                        <li><a href="{% url 'Catalogo' %}">Galería de productos</a></li>
-                        <li><a href="{% url 'ListadoProductos' %}">Administración de productos</a></li>
-                        <li><a href="#">Carro[]</a></li>
-                        <li><a href="{% url 'cerrarsesion' %}">Logout</a></li>
+                      {% if user.is_authenticated %}
+                        <li><a href="#">Bienveni@, {{user.username}}!</a></li>
+                        <li><a href="{% url 'Catalogo' %}">Catálogo</a></li>
+
+                        {% if perms.FloreriaPetalos.add_producto %}
+                              <li><a href="{% url 'ListadoProductos' %}">Administración de productos</a></li>
+                        {% endif %}
+                      {% endif %}
+                      
+                      {% if user.is_authenticated %}
+                      <li><a href="{% url 'logout'%}">cerrar sesión</a></li>
+                      {% else %}
+                      <li><a href="{% url 'login'%}">Iniciar Sesión</a></li>
+                      <li><a href="{% url 'Register'%}">Registrarse</a></li>
+                      {% endif %}
                       </ul>
                 </div>
           </nav>

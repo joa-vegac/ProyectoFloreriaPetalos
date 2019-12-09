@@ -1,0 +1,58 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+    Florería Pétalos | Carro de compras
+{% endblock titulo %}
+
+{% load static %}
+
+{% block hojaEstilo %}
+<link rel="stylesheet" href="{% static 'css/listadoproductos.css' %}">
+{% endblock hojaEstilo %}
+
+{% block contenido %}
+<div class="contenido">
+    <div class="listado-box">
+        <table cellspacing="0" id="listado-tabla">
+            <tr>
+                <td colspan="7" class="title">
+                    Productos en el carro
+                </td>
+            </tr>
+            <tr>
+                <th>Imagen</th>
+                <th>Nombre </th>
+                <th>Valor </th>
+                <th>Cantidad </th>
+                <th>Total </th>
+                <th>Agregar</th>
+                <th>Quitar</th>
+            </tr>
+    
+            {% for p in x %}
+            <tr>
+                <td><img src="{{p.imagen.url}}"></td>
+                <td>{{p.nombre}}</td>
+                <td>${{p.valor}}</td>
+                <td>{{p.cantidad}}</td>
+                <td>{{p.total}}</td>
+                <td class="accion">
+                    <input type="button" id="btn-modificar" value="+" onclick="javascript:location.href='{% url 'carroMAS' p.id %}'" >
+                </td>
+                <td class="accion">
+                    <input type="button" id="btn-eliminar" value="-" onclick="javascript:location.href='{% url 'carroMENOS' p.id %}'">
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+            <td colspan="3">Total</td>  
+            <td>{{total}}</td>  
+            <td>
+                <input type="button" value="GrabarCarro" onclick="javascript:location.href='{% url 'GrabarCarro' %}'" >
+            </td>
+        </tr>
+        </table>
+    </div>
+    {{mensaje}}
+</div>
+{% endblock contenido %}
