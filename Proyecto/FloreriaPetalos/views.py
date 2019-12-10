@@ -112,4 +112,4 @@ def eliminar_pelicula(request,id):
 
 @login_required
 def informacion(request):
-    return render(request, 'core/info.html')
+    return render(request, 'core/Info.html')
