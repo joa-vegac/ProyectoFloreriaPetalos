@@ -110,28 +110,6 @@ def eliminar_pelicula(request,id):
     pelis=Pelicula.objects.all()
     return render(request,'core/galeria.html',{'peliculas':pelis,'msg':mensaje})
 
-@permission_required('FloreriaPetalos/add_producto')
-def formulario(request):
-    catego=Categoria.objects.all()# select * from categoria
-    if request.POST:
-        titulo=request.POST.get("txtTitulo")
-        duracion=request.POST.get("txtDuracion")
-        precio=request.POST.get("txtPrecio")
-        descripcion=request.POST.get("txtDescripcion")
-        categoria=request.POST.get("cboCategoria")
-        #ubicamos de la tabla (modelo) Categoria el reg. con "name" igual al valor
-        #recuperado del combo "cboCategoria"
-        obj_categoria=Categoria.objects.get(name=categoria)
-        imagen=request.FILES.get("imagen")
-        #crear una instancia del modelo Pelicula
-        pelicula=Pelicula(
-            name=titulo,
-            duracion=duracion,
-            precio=precio,
-            descripcion=descripcion,
-            categoria=obj_categoria,
-            imagen=imagen
-        )
-        pelicula.save() #se graba el contenido del objeto pelicula
-        return render(request,'core/formulario.html',{'categorias':catego,'msg':'grabo'})
-    return render(request,'core/formulario.html',{'categorias':catego})
+@login_required
+def informacion(request):
+    return render(request, 'core/info.html')

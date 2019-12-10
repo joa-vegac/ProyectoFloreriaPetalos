@@ -7,28 +7,28 @@
 {% load static %}
 
 {% block hojaEstilo %}
-<link rel="stylesheet" href="{% static 'css/iniciarsesion.css' %}">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
 {% endblock hojaEstilo %}
 
 {% block contenido %}
         <div class="contenido">
-            <div class="login-box">
-
-                <div class="login-img">
-                    <img src="{% static 'img/Login.jpg' %}">
+                <div class="login-box">
+                    <div class="login-img">
+                        <img src="{% static 'img/Login.jpg' %}">
+                    </div>
+    
+                    <div class="login-form">
+                        <h1>Iniciar Sesión</h1>
+    
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            
+                            {{ form }}
+                            <a id="rpass" href="#">Olvide mi contraseña</a>
+                            <button type="submit" id="btnIngresar"><span>Ingresar </span></button>
+                            <a id="rpass" href="{% url 'Register'%}">No tienes una cuenta? Registrate aqui</a>
+                        </form>
+                    </div>
                 </div>
-
-                <div class="login-form">
-                    <h1>Iniciar Sesión</h1>
-
-                    <form method="POST" action="">
-                        {% csrf_token %}
-                        
-                        {{ form }}
-
-                        <button type="submit" id="btnIngresar"><span>Ingresar </span></button>
-                    </form>
-                </div>
-            </div>
         </div>
 {% endblock contenido %}

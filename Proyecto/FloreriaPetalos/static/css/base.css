@@ -71,9 +71,9 @@ nav{
 
 .logo {
     float: left;
-    margin-left: 16px;
-    margin-top: 8px;
-    padding-left: 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+    padding-left: 5px;
 }
 
 .logo a {
@@ -81,9 +81,7 @@ nav{
     text-transform: uppercase;
     font-weight: 200;
     text-decoration: none;
-    font-size: 32px;
-    padding: 3px;
-    letter-spacing: 2px;
+    font-size: 20px;
 }
 
 nav ul {
@@ -92,7 +90,6 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    float: left;
 }
 
 nav ul li:hover {
@@ -112,18 +109,21 @@ nav ul li a {
     outline: none;
     color: #000;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     transition: 1s;
 }
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 980px) {
     .logo {
-          padding: 0;
+        padding: 0;
+        margin-left: 10px;
+        margin-top: 5px;
+        padding-left: 5px;
     }
 
     .logo a{
-        font-size: 25px;
+        font-size: 30px;
         letter-spacing: 5px;
     }
 

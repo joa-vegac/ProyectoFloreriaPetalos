@@ -5,18 +5,18 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    width: 60%;
+    width: 55%;
     margin: auto;
-    padding: 20px;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 2s; /* Firefox < 16 */
      -ms-animation: fadein 2s; /* Internet Explorer */
       -o-animation: fadein 2s; /* Opera < 12.1 */
          animation: fadein 2s;
+         border: 1px solid rgba(0, 0, 0, 0.288);
 }
 
 .login-img{
-    width: 45%;
+    width: 40%;
     border: 1px solid rgba(0, 0, 0, 0.288);
     border-right: 0;
 }
@@ -27,39 +27,36 @@
 }
 
 .login-form{
-    width: 55%;
-    border: 1px solid rgba(0, 0, 0, 0.288);
+    width: 60%;
     border-left: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: auto;
+    text-align: center;
 }
 
-.login-form h1{
+h1{
     font-weight: 200;
     text-align: center;
-    font-size: 25px;
+    font-size: 30px;
     font-family: alegreya;
 }
 
 form{
-    width: 90%;
+    width: 70%;
     margin: auto;
     font-size: 14px;
     text-align: left;
 }
 
-form div{
-    height: 15px;
-}
 
 input{
-    display: block;
-    padding-top: 10px;
-    padding-bottom: 5px; 
+    display: block; 
+    height: 35px;
     width: 100%;
-    font-size: 14px;
+    font-size: 15px;
     border:0;
     border-bottom: 1px solid rgb(66, 66, 66);
-    margin: auto;
+    margin-bottom: 20px;
 }
 
 td{
@@ -69,7 +66,7 @@ td{
 #rpass{
     color: rgb(66, 66, 66);
     text-decoration: none;
-    float: right;
+    text-align: right;
     font-size: 15px;
 }
 
@@ -86,6 +83,7 @@ td{
     font-size: 15px;
     padding: 8px;
     margin-top: 20px;
+    margin-bottom: 10px;
     cursor: pointer;
     transition: all 0.5s;
 }

@@ -7,7 +7,7 @@
 {% load static %}
 
 {% block hojaEstilo %}
-<link rel="stylesheet" href="{% static 'css/catalogo_productos.css' %}">
+<link rel="stylesheet" href="{% static 'css/catalogo.css' %}">
 {% endblock hojaEstilo %}
 
 {% block contenido %}
@@ -44,7 +44,7 @@
                     Dimensiones del arreglo: Alto 50cm y Diámetro 30 cm aprox.
                     </p>
                     <h2 id="stock">Stock: 0</h2>
-                    <h2 id="estado">Estado: No disponible</h2>
+                    <h2 id="estado">Estado: Disponible</h2>
             </div>
         
             <div class="box">
@@ -59,14 +59,29 @@
             </div>
 
             {% for p in productos%}
-                <div class="box">
-                <img src="{{p.imagen.url}}" alt="">
-                <h1>{{p.nombre}} </h1>
-                <h2 id="precio">${{p.valor}}</h2>
-                <p>{{p.descripcion}}</p>
-                <h2 id="stock">Stock: {{p.stock}}</h2>
-                <h2 id="estado">Estado: {{p.estado}}</h2>
-                </div>    
+
+                {% if perms.FloreriaPetalos.add_producto %}
+                    <div class="box">
+                        <img src="{{p.imagen.url}}" alt="">
+                        <h1>{{p.nombre}} </h1>
+                        <h2 id="precio">${{p.valor}}</h2>
+                        <p>{{p.descripcion}}</p>
+                        <h2 id="stock">Stock: {{p.stock}}</h2>
+                        <h2 id="estado">Estado: {{p.estado}}</h2>
+                    </div>
+                {% else %}
+                    {% if p.estado.nombre_estado == 'Disponible' %}
+                    <div class="box">
+                        <img src="{{p.imagen.url}}" alt="">
+                        <h1>{{p.nombre}} </h1>
+                        <h2 id="precio">${{p.valor}}</h2>
+                        <p>{{p.descripcion}}</p>
+                        <h2 id="stock">Stock: {{p.stock}}</h2>
+                        <h2 id="estado">Estado: {{p.estado}}</h2>
+                        <h3>Agregar al carro</h3>
+                    </div>
+                    {% endif %}
+                {% endif %}
             {% endfor %}
         
         </div>

@@ -2,7 +2,7 @@
 
 .registro-box{
     display: flex;
-    width: 90%;
+    width: 80%;
     margin: auto;
     padding: 10px;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
@@ -18,21 +18,27 @@
     margin: auto;
     font-size: 14px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
 
 h1{
     font-weight: 200;
     text-align: center;
-    font-size: 25px;
+    font-size: 30px;
     font-family: alegreya;
+    margin: auto;
+    margin-bottom: 5px;
 }
 
 table{
+    margin: auto;
     text-align: left;
+    width: 70%;
 }
 
 input{ 
-    width: 70%;
+    width: 80%;
+    height: 30px;
     margin-bottom: 5px;
     font-size: 14px;
     border:0;
@@ -43,20 +49,23 @@ form{
     width: 100%;
     margin: auto;
     font-size: 13px;
+    border: 1px solid rgba(211, 211, 211, 0.986);
+    border-radius: 5px ;
+    text-align: center;
 }
 
 .links{
     margin: auto;
-    width: 60%;
+    width: 100%;
 }
-
 
 #btnRegistrarse{
     background: black;
-    width: 100%;
+    width: 30%;
     height: 30px;
     color: white;
     margin: auto;
+    margin-top: 10px;
     border: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
@@ -91,8 +100,9 @@ form{
 }
 
 .ing{
-    width: 100%;
-    margin-top: 5px;
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
     text-align: center;
     border-top: 1px solid rgb(83, 30, 42) ;
     height: 30px;

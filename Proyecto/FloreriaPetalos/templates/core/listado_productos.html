@@ -15,19 +15,21 @@
     <div class="listado-box">
         <table cellspacing="0" id="listado-tabla">
             <tr>
-                <td colspan="3" class="title">
+                <td colspan="2" class="title">
                     Listado de productos
                 </td>
-                <td colspan="2">
+                
+                <td colspan="3" style="font-size: 17px;background: white;">
                     <form action="#">
                         {% csrf_token %}
-                        Stock: <input type="number" name="stock" value="{{stock}}" style="max-width:70px;">
+                        Stock: <input type="number" name="stock" value="" style="max-width:70px;">
                         <input type="submit" value="Filtrar">
                         
                     </form>
                 </td>
-                <td colspan="3">
+                <td colspan="3" style="font-size: 17px;background: white;">
                     <form action="#">
+                        {% csrf_token %}
                         Estado: 
                         <Select name="cboestados" id="cboestados">
                             {% for e in estados %}
@@ -35,10 +37,10 @@
                             {% endfor %}
                         </Select>
                         <input type="submit" value="Filtrar">
-                        {% csrf_token %}
                     </form>
                 </td>
-                <td colspan="1" class="enlace">
+
+                <td colspan="1" class="title">
 
                     <a href="{% url 'Formulario' %}"><input type="submit" id="btn-registrar" value="Registrar producto"></a>
                 </td>
@@ -50,7 +52,7 @@
                 <th>Descripción </th>
                 <th>Stock </th>
                 <th>Estado </th>
-                <th>Última edición</th>
+                <th>Fecha de registro</th>
                 <th></th>
                 <th></th>
             </tr>
