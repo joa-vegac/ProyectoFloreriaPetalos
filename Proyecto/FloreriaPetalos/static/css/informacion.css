@@ -1,0 +1,39 @@
+.contenido{
+    margin: auto;
+    width: 95%;
+    
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+     -ms-animation: fadein 2s; /* Internet Explorer */
+      -o-animation: fadein 2s; /* Opera < 12.1 */
+         animation: fadein 2s;
+}
+
+.informacion{
+    width: 100%;
+    margin: auto;
+}
+
+.condiciones{
+    padding: 5px;
+}
+
+.ComoComprar{
+    padding: 5px;    
+}
+
+div{
+    margin-bottom: 15px;
+}
+
+h1{
+    color: rgb(107, 60, 86);
+    font-weight: 300;
+    font-size: 30px;
+}
+
+h2{
+    color: #424b57;
+    font-weight: 400;
+    font-size: 20px;
+}
