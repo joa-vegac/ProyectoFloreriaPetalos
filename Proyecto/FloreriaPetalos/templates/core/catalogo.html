@@ -11,53 +11,9 @@
 {% endblock hojaEstilo %}
 
 {% block contenido %}
-        <div class="contenido">
-            <div class="img-area">
-                <div class="box">
-                <img src="{% static 'img/Producto1.png' %}" alt="">
-                <h1>Ramo de 12 rosas rojas y Gypsuphylia</h1>
-                <h2 id="precio">$29900</h2>
-                <p>Bello ramo compuesto por 12 rosas ecuatorianos y Gypsuphylia 
-                ecuatoriana Envuelto en papel arroz y fina malla, decorado con 
-                un rosetón en 2 tipos de cinta (organza y satin).
-                Medidas del arreglo: Largo 50cm y Diámetro 35cm aprox.
-                </p>
-                <h2 id="stock">Stock: 2</h2>
-                <h2 id="estado">Estado: Disponible</h2>
-                </div>
+    <div class="contenido">
 
-            <div class="box">
-                    <img src="{% static 'img/Producto2.jpg' %}" alt="">
-                    <h1>Ramo de Calas</h1>
-                    <h2 id="precio">$22900</h2>
-                    <p>
-                    </p>
-                    <h2 id="stock">Stock: 10</h2>
-                    <h2 id="estado">Estado: Disponible</h2>
-            </div>
-            <div class="box">
-                    <img src="{% static 'img/Producto3.jpg' %}" alt="">
-                    <h1>Ramo Mix - El Ocaso</h1>
-                    <h2 id="precio">$42900</h2>
-                    <p>Hermoso ramo mixto compuesto lisiantum, iris, tulipanes y 
-                    lilum, envuelto en delicada malla y atado con cinta de organza.
-                    Dimensiones del arreglo: Alto 50cm y Diámetro 30 cm aprox.
-                    </p>
-                    <h2 id="stock">Stock: 0</h2>
-                    <h2 id="estado">Estado: Disponible</h2>
-            </div>
-        
-            <div class="box">
-                    <img src="{% static 'img/Producto4.png' %}" alt="">
-                    <h1>Ramo de 20 Girasoles</h1>
-                    <h2 id="precio">$32500</h2>
-                    <p>Rustico Ramo de  girasoles medianos acompañado por solidago importado y 
-                    fino folaje verde, envuelto en arpillera rustica.
-                    </p>
-                    <h2 id="stock">Stock: 23</h2>
-                    <h2 id="estado">Estado: Disponible</h2>
-            </div>
-
+        <div class="img-area">
             {% for p in productos%}
 
                 {% if perms.FloreriaPetalos.add_producto %}
@@ -76,14 +32,13 @@
                         <h1>{{p.nombre}} </h1>
                         <h2 id="precio">${{p.valor}}</h2>
                         <p>{{p.descripcion}}</p>
-                        <h2 id="stock">Stock: {{p.stock}}</h2>
-                        <h2 id="estado">Estado: {{p.estado}}</h2>
                         <h3>Agregar al carro</h3>
                     </div>
                     {% endif %}
                 {% endif %}
+
             {% endfor %}
-        
         </div>
+    
     </div>
 {% endblock contenido %}

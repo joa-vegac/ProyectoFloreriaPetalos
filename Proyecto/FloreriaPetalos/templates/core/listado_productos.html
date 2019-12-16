@@ -7,70 +7,46 @@
 {% load static %}
 
 {% block hojaEstilo %}
-<link rel="stylesheet" href="{% static 'css/listado.css' %}">
+<link rel="stylesheet" href="{% static 'css/lista.css' %}">
 {% endblock hojaEstilo %}
 
 {% block contenido %}
 <div class="contenido">
     <div class="listado-box">
+        <div class="barra">
+            <h1>Listado de productos </h1>
+        </div>
+
         <table cellspacing="0" id="listado-tabla">
-            <tr>
-                <td colspan="2" class="title">
-                    Listado de productos
-                </td>
-                
-                <td colspan="3" style="font-size: 17px;background: white;">
-                    <form action="#">
-                        {% csrf_token %}
-                        Stock: <input type="number" name="stock" value="" style="max-width:70px;">
-                        <input type="submit" value="Filtrar">
-                        
-                    </form>
-                </td>
-                <td colspan="3" style="font-size: 17px;background: white;">
-                    <form action="#">
-                        {% csrf_token %}
-                        Estado: 
-                        <Select name="cboestados" id="cboestados">
-                            {% for e in estados %}
-                                <option value="{{ e.id }}">{{ e.nombre_estado }}</option>
-                            {% endfor %}
-                        </Select>
-                        <input type="submit" value="Filtrar">
-                    </form>
-                </td>
 
-                <td colspan="1" class="title">
-
-                    <a href="{% url 'Formulario' %}"><input type="submit" id="btn-registrar" value="Registrar producto"></a>
-                </td>
-            </tr>
             <tr>
                 <th>Imagen</th>
                 <th>Nombre </th>
                 <th>Valor </th>
-                <th>Descripción </th>
+                <th class="descripcion">Descripción </th>
                 <th>Stock </th>
                 <th>Estado </th>
-                <th>Fecha de registro</th>
-                <th></th>
-                <th></th>
+                <th class="created_date">Fecha de registro</th>
+                <th colspan="2"><a href="{% url 'Formulario' %}"><input type="submit" id="btn-registrar" value="Nuevo producto"></a></th>
             </tr>
     
             {% for p in productos %}
             <tr>
                 <td><img src="{{p.imagen.url}}"></td>
-                <td>{{p.nombre}}</td>
+                <td style="max-width: 130px;">{{p.nombre}}</td>
                 <td>${{p.valor}}</td>
-                <td style="max-width: 250px;">{{p.descripcion}}</td>
+                <td class="descripcion" style="max-width: 350px;">{{p.descripcion}}</td>
                 <td>{{p.stock}}</td>
-                <td>{{p.estado}}</td>
-                <td style="max-width: 180px;">{{p.created_date}}</td>
+                <td style="max-width: 80px;">{{p.estado}}</td>
+                <td class="created_date" style="max-width: 130px;">{{p.created_date}}</td>
+
                 <td class="accion">
                     <a href="{% url 'ModificarProducto' p.id %}"><input type="submit" id="btn-modificar" value="Modificar"></a>
+                    <a href="{% url 'ModificarProducto' p.id %}"><img src="{% static 'img/edit.png' %}" id="img-modificar"></a>
                 </td>
                 <td class="accion">
                     <a href="{% url 'EliminarProducto' p.id %}" ><input type="submit" id="btn-eliminar" value="Eliminar"></a>
+                    <a href="{% url 'EliminarProducto' p.id %}" ><img src="{% static 'img/delete.png' %}" id="img-eliminar"></a>
                 </td>
 
             </tr>

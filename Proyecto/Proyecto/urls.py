@@ -7,6 +7,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('FloreriaPetalos.urls')),
     path('accounts/', include("django.contrib.auth.urls")),
+    path('oauth/', include('social_django.urls', namespace='social')),
+    path('', include('pwa.urls')),
 ]
 
 if settings.DEBUG:

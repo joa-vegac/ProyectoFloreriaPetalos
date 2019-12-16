@@ -7,7 +7,7 @@
 {% load static %}
 
 {% block hojaEstilo %}
-      <link rel="stylesheet" href="{% static 'css/admin_product.css' %}">
+      <link rel="stylesheet" href="{% static 'css/formulario_registrar.css' %}">
 {% endblock hojaEstilo %}
 
 {% block contenido %}
@@ -20,25 +20,25 @@
                             <td colspan="2" id="titulo">Registro de productos</td>
                         </tr>
                         <tr>
-                            <td id="t">Nombre del producto</td>
-                            <td><input type="text" id="name" name="name" placeholder="Ingrese nombre" required></td>
+                            <td>Nombre del producto</td>
+                            <td><input type="text" id="name" name="name" placeholder="Ingrese nombre (max. caracteres: 50)" maxlength="50" required></td>
                         </tr>
                         <tr>
-                            <td id="t">Valor</td>
+                            <td>Valor</td>
                             <td><input type="number" id="value" name="value" min="0"  placeholder="Ingrese valor" required></td>
                         </tr>
                         <tr>
-                            <td id="t">Descripción</td>
-                            <td><textarea name="desc" id="desc" placeholder="Ingrese descripción"></textarea></td>
+                            <td>Descripción</td>
+                            <td><textarea name="desc" id="desc" placeholder="Ingrese descripción (max. caracteres: 230)" maxlength="230"></textarea></td>
                         </tr>
                         <tr>
-                            <td id="t">Stock</td>
+                            <td>Stock</td>
                             <td><input type="number" id="stock" name="stock" min="0" placeholder="Ingrese stock" required></td>
                         </tr>
                         <tr>
-                            <td id="t" class="estado">Estado</td>
+                            <td>Estado</td>
                             <td>
-                                <Select name="cboestados" id="cboestados">
+                                <Select name="cboestados" id="cboestados" required>
                                     <option value="">Seleccionar estado</option>
                                     {% for e in estados %}
                                         <option value="{{ e.id }}">{{ e.nombre_estado }}</option>
@@ -48,8 +48,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td id="t">Seleccione imagen del producto</td>
-                            <td><input type="file" name="image" id="image" required></td>
+                            <td>Seleccione imagen del producto</td>
+                            <td><input  style="border: 0;" type="file" name="image" id="image" required></td>
                         </tr>
                         <tr>
                             <td>
@@ -62,7 +62,7 @@
                 </table>
             <div id="resp">{{msg}}</div>
         </form>
-        
+
     </div>
 </div>
 {% endblock contenido %}

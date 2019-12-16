@@ -6,48 +6,107 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>{% block titulo %}{% endblock titulo %}</title>
+
+      {% load pwa %}
+      {% progressive_web_app_meta %}
+
       <link rel="stylesheet" href="{% static 'css/base.css' %}">
       {% block hojaEstilo %}{% endblock hojaEstilo %}
+
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-messaging.js"></script>
+
+
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+
+      <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                  apiKey: "AIzaSyD6-bz2yn3yBfrbVm5LltESnx3HXjaKUHc",
+                  authDomain: "floreriapetalos-4f75b.firebaseapp.com",
+                  databaseURL: "https://floreriapetalos-4f75b.firebaseio.com",
+                  projectId: "floreriapetalos-4f75b",
+                  storageBucket: "floreriapetalos-4f75b.appspot.com",
+                  messagingSenderId: "922558372819",
+                  appId: "1:922558372819:web:b896bd32716a475c3f6d26"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+
+            let messaging = firebase.messaging();
+
+            navigator.serviceWorker
+            .register('/serviceworker.js')
+            .then(function(register){
+                  messaging.useServiceWorker(register);
+
+                  messaging.requestPermission()
+                  .then(function(){
+                        console.log("El usuario ha aceptado recibir notificaciones.")
+
+                        return messaging.getToken();
+                  })
+                  .then(function(token){
+                        console.log(token);
+                  })
+                  .catch(function(e){
+                        console.log("El usuario no ha aceptado recibir notificaciones.")
+                  })
+            })
+
+
+            messaging.onMessage(function(payload){
+                  let title = 'Titulo de la notificación';
+
+                  let options = {
+                        body:'este es el mensaje',
+                        icon:'static/img/logo2.png'
+                  }
+
+                  let mensaje = new Notification(title, options);
+            });
+
+      </script>
 </head>
+
 <body>
     <header>
             <div class="container">
-                    <nav>
-                <input type="checkbox" id="nav" class="hidden">
-                <label for="nav" class="nav-btn">
-                      <i></i>
-                      <i></i>
-                      <i></i>
-                </label>
-                <div class="logo">
-                      <a href="{% url 'Inicio' %}">pétalos</a>
-                </div>
-                <div class="nav-wrapper">
-                      <ul>
-                      {% if user.is_authenticated %}
-                      
-                        <li><a href="#">Bienveni@, {{user.username}}!</a></li>
-                        <li><a href="{% url 'Catalogo' %}">Catálogo</a></li>
-                        
-                        <li><a href="{% url 'Informacion' %}">Información</a></li>
-                        {% if perms.FloreriaPetalos.add_producto %}
-                              <li><a href="{% url 'ListadoProductos' %}">Administración</a></li>
-                        {% else %}
-                              <li><a href="#">Carro</a></li>
-                        {% endif %}
+                  <nav>
+                        <input type="checkbox" id="nav" class="hidden">
+                        <label for="nav" class="nav-btn">
+                              <i></i>
+                              <i></i>
+                              <i></i>
+                        </label>
+                        <div class="logo">
+                              <a href="{% url 'Inicio' %}">pétalos</a>
+                        </div>
 
-                      {% endif %}
+                        <div class="nav-wrapper">
+                              <ul>
+                                    {% if user.is_authenticated %}
                       
-                      {% if user.is_authenticated %}
-                      <li><a href="{% url 'logout'%}">CERRAR SESIÓN</a></li>
-                      {% else %}
-                      <li><a href="{% url 'login'%}">INICIAR SESIÓN</a></li>
-                      <li><a href="{% url 'Register'%}">REGISTRARSE</a></li>
-                      {% endif %}
-                      </ul>
-                </div>
-          </nav>
-        </div>
+                                          <li><a href="#">Bienveni@, {{user.username}}!</a></li>
+                                          <li><a href="{% url 'Catalogo' %}">Catálogo</a></li>
+
+                                          {% if perms.FloreriaPetalos.add_producto %}
+                                                <li><a href="{% url 'ListadoProductos' %}">Administración</a></li>
+                                          {% else %}
+                                                <li><a href="#">Carro</a></li>
+                                          {% endif %}
+
+                                          <li><a href="{% url 'logout'%}">CERRAR SESIÓN</a></li>
+                                    {% else %}
+                                          <li><a href="{% url 'login'%}">INICIAR SESIÓN</a></li>
+                                          <li><a href="{% url 'Register'%}">REGISTRARSE</a></li>
+                                    {% endif %}
+                              </ul>
+                        </div>
+                  </nav>
+            </div>
     </header>
     
     <section>

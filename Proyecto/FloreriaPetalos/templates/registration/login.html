@@ -24,9 +24,11 @@
                             {% csrf_token %}
                             
                             {{ form }}
-                            <a id="rpass" href="#">Olvide mi contraseña</a>
                             <button type="submit" id="btnIngresar"><span>Ingresar </span></button>
-                            <a id="rpass" href="{% url 'Register'%}">No tienes una cuenta? Registrate aqui</a>
+                            
+                            <div class="links">
+                                <a id="rpass" href="{% url 'Register'%}">No tienes una cuenta? Registrate aqui</a>
+                                <a href="{% url 'social:begin' 'facebook' %}"><button id="facebookbtn">Iniciar sesión con Facebook</button></a>
                         </form>
                     </div>
                 </div>

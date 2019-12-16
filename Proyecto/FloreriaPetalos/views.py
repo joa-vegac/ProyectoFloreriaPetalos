@@ -5,6 +5,17 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required, permission_required
 
+def index(request):
+    estados = Estado.objects.all()
+    productos = Producto.objects.all()
+
+    data = {
+        'productos':productos,
+        'estados': estados
+    }
+    return render(request, 'core/index.html', data)
+
+
 def register(request):
     data = {
         'form':customuserform()
@@ -21,8 +32,6 @@ def register(request):
             return redirect(to="Inicio")
     return render(request, 'registration/register.html', data)
 
-def index(request):
-    return render(request, 'core/index.html')
 
 @login_required
 def catalogo(request):
@@ -61,18 +70,13 @@ def registro_producto(request):
 def listado_productos(request):
     estados = Estado.objects.all()
     productos = Producto.objects.all()
-    stock = 0
 
     data = {
         'productos':productos,
         'estados': estados
     }
 
-    if request.POST.get('stock'):
-        stock = int(request.POST.get('stock'))
-        productos = productos.filter(stock__gte=stock)
-
-    return render(request, 'core/listado_productos.html', data, {'stock':stock})
+    return render(request, 'core/listado_productos.html',data)
 
 @permission_required('FloreriaPetalos/add_producto')
 def eliminar_producto(request, id):
@@ -97,18 +101,6 @@ def modificar_producto(request, id):
 
     return render(request, 'core/modificar_producto.html', data)
 
-@permission_required('FloreriaPetalos/add_producto')
-def eliminar_pelicula(request,id):
-    peli=Pelicula.objects.get(name=id)
-    mensaje=''
-    try:
-        peli.delete()
-        mensaje='Pelicula Eliminada'
-    except:
-        mensaje='Problemas de Eliminacion Pelicula'
-
-    pelis=Pelicula.objects.all()
-    return render(request,'core/galeria.html',{'peliculas':pelis,'msg':mensaje})
 
 @login_required
 def informacion(request):
