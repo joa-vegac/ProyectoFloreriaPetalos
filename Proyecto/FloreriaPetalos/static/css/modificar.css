@@ -1,2 +1,129 @@
 @import url(../css/base.css);
 
+.form-producto{
+    margin: auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+     -ms-animation: fadein 2s; /* Internet Explorer */
+      -o-animation: fadein 2s; /* Opera < 12.1 */
+         animation: fadein 2s;
+}
+
+#formProductos{
+    margin: auto;
+    width: 100%;
+}
+
+h1{
+    text-align: center; 
+    font-size: 23px; 
+    font-family: alegreya;
+    letter-spacing: 4px;
+    color: rgb(117, 122, 97);
+}
+
+table{
+    margin: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    padding: 5px;
+    font-size: 16px;
+    width: 90%;
+    border: 1px solid #E4E4E4;
+    border-bottom: 0;
+}
+
+
+input{
+    font-size: 16px;
+    display: block;
+    height: 30px;
+    margin: 5px;
+    width: 70%;
+    border: 0;
+    border-bottom: 1px solid gray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+select{
+    font-size: 16px;
+    display: block;
+    height: 30px;
+    margin: 5px;
+    width: 70%;
+    border: 0;
+    border-bottom: 1px solid gray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+textarea{
+    width: 70%;
+    height: 80px;
+    margin: 5px;
+    font-size: 16px;
+    border-left: 0;
+    border-top: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/*BOTONES*/
+.buttons{
+    display: flex;
+    border: 1px solid #E4E4E4;
+    border-top: 0;
+    width: 90%;
+    margin: auto;
+}
+.boton{
+    background: rgb(117, 122, 97);
+    color: white;
+    font-size: 17px;
+    height: 30px;
+    border: 0;
+    transition: 1s;
+    margin: auto;
+    width: 50%;
+}
+
+.boton:hover{
+    background: rgb(70, 73, 60);
+    transition: 1s;
+    color: white;
+    cursor: pointer;
+}
+
+.limp{
+    background: white;
+    color: rgb(92, 92, 92);
+    border: rgb(216, 216, 216);
+    font-size: 15px;
+    transition: 1s;
+    height: 30px;
+    width: 20%;
+    margin: auto;
+}
+
+.limp:hover{
+    background: rgb(233, 233, 233);
+    transition: 1s;
+    border: rgb(184, 184, 184);
+    cursor: pointer;
+}
+
+#resp{
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    background-color: rgb(117, 122, 97);
+    color: white;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    width: 60%;
+}

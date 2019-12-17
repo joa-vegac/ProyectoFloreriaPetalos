@@ -49,12 +49,13 @@ firebase.initializeApp(firebaseConfig);
 
 let messaging = firebase.messaging();
 
-messaging.setBackgroundMessageMandler(function(payload){
-  let title = 'Titulo de la notificación';
+messaging.setBackgroundMessageHandler(function(payload){
+  console.log("Ha llegado notificacion");
+  let title = payload.notification.title;
 
   let options = {
-    body:'este es el mensaje',
-    icon:'static/img/logo2.png'
+    body: payload.notification.body,
+    icon: payload.notification.icon
   }
 
   self.registration.showNotification(title, options);

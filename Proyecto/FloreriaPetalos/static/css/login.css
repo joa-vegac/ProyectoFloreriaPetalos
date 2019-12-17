@@ -6,7 +6,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    width: 55%;
+    width: 60%;
     margin: auto;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -37,12 +37,14 @@
 h1{
     font-weight: 200;
     text-align: center;
-    font-size: 30px;
+    font-size: 32px;
     font-family: alegreya;
+    margin: auto;
+    padding-bottom: 10px;
 }
 
 form{
-    width: 70%;
+    width: 80%;
     margin: auto;
     font-size: 14px;
     text-align: left;
@@ -56,22 +58,11 @@ input{
     font-size: 15px;
     border:0;
     border-bottom: 1px solid rgb(66, 66, 66);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 td{
     font-size: 14px;
-}
-
-#rpass{
-    color: rgb(66, 66, 66);
-    text-decoration: none;
-    text-align: right;
-    font-size: 15px;
-}
-
-#rpass:hover{
-    text-decoration: underline;
 }
 
 #btnIngresar{
@@ -120,17 +111,15 @@ td{
 }
 
 #facebookbtn{
-    margin-top: 5px;
-    background: #3b5998;
-    height: 25px;
-    width: 70%;
+    height: 30px;
+    width: 100%;
     border: 0;
     text-decoration: none;
     font-size: 15px;
-    padding: 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
+    color: #3b5998;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 .reg{
@@ -145,9 +134,71 @@ td{
     text-decoration: none;
     font-size: 17px;
     font-weight: 400;
-    letter-spacing: 1.5;
 }
 
 #reg:hover{
     text-decoration: underline;
+}
+
+@media screen and (max-width: 950px) {
+    .login-box{
+        width: 70%;
+    }
+    
+    h1{
+        padding-bottom: 10px;
+        margin: auto;
+    }
+    
+    #reg{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .login-box{
+        width: 80%;
+    }
+    
+    h1{
+        padding-bottom: 10px;
+        margin: auto;
+    }
+    
+    #reg{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .login-box{
+        width: 80%;
+    }
+
+    .login-img{
+        display: none;
+    }
+
+    .login-form{
+        width: 100%;
+    }
+    
+    h1{
+        font-size: 30px;
+        padding-bottom: 20px;
+        padding-top: 10px;
+    }
+    
+    form{
+        width: 90%;
+    }
+    
+    #reg{
+        font-size: 14px;
+    }
+
+    #facebookbtn{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }

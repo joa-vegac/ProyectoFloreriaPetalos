@@ -15,54 +15,20 @@
     <div class="form-producto">
         <form id="formProductos" method="POST" action="" enctype="multipart/form-data">
             {% csrf_token %}
-                <table>
-                        <tr>
-                            <td colspan="2" id="titulo">Registro de productos</td>
-                        </tr>
-                        <tr>
-                            <td>Nombre del producto</td>
-                            <td><input type="text" id="name" name="name" placeholder="Ingrese nombre (max. caracteres: 50)" maxlength="50" required></td>
-                        </tr>
-                        <tr>
-                            <td>Valor</td>
-                            <td><input type="number" id="value" name="value" min="0"  placeholder="Ingrese valor" required></td>
-                        </tr>
-                        <tr>
-                            <td>Descripción</td>
-                            <td><textarea name="desc" id="desc" placeholder="Ingrese descripción (max. caracteres: 230)" maxlength="230"></textarea></td>
-                        </tr>
-                        <tr>
-                            <td>Stock</td>
-                            <td><input type="number" id="stock" name="stock" min="0" placeholder="Ingrese stock" required></td>
-                        </tr>
-                        <tr>
-                            <td>Estado</td>
-                            <td>
-                                <Select name="cboestados" id="cboestados" required>
-                                    <option value="">Seleccionar estado</option>
-                                    {% for e in estados %}
-                                        <option value="{{ e.id }}">{{ e.nombre_estado }}</option>
-                                    
-                                    {% endfor %}
-                                </Select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Seleccione imagen del producto</td>
-                            <td><input  style="border: 0;" type="file" name="image" id="image" required></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input class="limp" type="reset" value="Limpiar" name="accion">
-                            </td>
-                            <td>
-                                <input class="boton" id="reg" type="submit" value="Registrar" name=accion>
-                            </td>
-                    </tr>
-                </table>
+            <table>
+                <tr>
+                    <td colspan="2" id="titulo">Registro de productos</td>
+                </tr>
+                    {{form.as_table}}
+                        <td>
+                            <input class="limp" type="reset" value="Limpiar">
+                        </td>
+                        <td>
+                            <input class="boton" id="reg" type="submit" value="Registrar">
+                        </td>
+             </table>
             <div id="resp">{{msg}}</div>
         </form>
-
     </div>
 </div>
 {% endblock contenido %}

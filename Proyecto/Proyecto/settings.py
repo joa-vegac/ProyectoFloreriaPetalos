@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'FloreriaPetalos.apps.FloreriapetalosConfig',
     'social_django',
     'pwa',
+    'rest_framework',
+    'fcm_django',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +144,15 @@ AUTHENTICATION_BACKENDS = (
 
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'serviceworker.js')
 
+FCM_DJANGO_SETTINGS = {
+        "APP_VERBOSE_NAME": "FloreriaPetalos",
+         # default: _('FCM Django')
+        "FCM_SERVER_KEY": "AIzaSyD6-bz2yn3yBfrbVm5LltESnx3HXjaKUHc",
+         # true if you want to have only one active device per registered user at a time
+         # default: False
+        "ONE_DEVICE_PER_USER": False,
+         # devices to which notifications cannot be sent,
+         # are deleted upon receiving error response from FCM
+         # default: False
+        "DELETE_INACTIVE_DEVICES": True,
+}

@@ -50,6 +50,24 @@
                   })
                   .then(function(token){
                         console.log(token);
+
+                        //enviar token a django para guardarlo en la base de datos
+                        fetch('guardar_token/', {
+                              method:'post',
+                              headers:{
+                                    'Content-Type':'application/json',
+                                    'Accept':'application/json'
+                              },
+                              body:JSON.stringify({
+                                    'token':token
+                              })
+                        })
+                        .then(function(resultado){
+                              console.log("Se ha guardado el token.")
+                        })
+                        .catch(function(e){
+                              console.log("No se ha guardado el token.")
+                        })
                   })
                   .catch(function(e){
                         console.log("El usuario no ha aceptado recibir notificaciones.")
@@ -58,11 +76,16 @@
 
 
             messaging.onMessage(function(payload){
-                  let title = 'Titulo de la notificación';
+                  console.log("Ha llegado notificación")
+
+                  let data = payload;
+                  console.log(data);
+
+                  let title = payload.notification.title;
 
                   let options = {
-                        body:'este es el mensaje',
-                        icon:'static/img/logo2.png'
+                        body: payload.notification.body,
+                        icon: payload.notification.icon
                   }
 
                   let mensaje = new Notification(title, options);

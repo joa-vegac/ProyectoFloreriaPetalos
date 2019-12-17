@@ -11,26 +11,26 @@
 {% endblock hojaEstilo %}
 
 {% block contenido %}
-      <div class="contenido">
-            <div class="index-info">
-                  <div class="banner">
-                        <img src="{% static 'img/portada.jpg' %}">
-                        <h1>Regala cariño, con Florería Pétalos.</h1>
-                  </div>
-                  <h2>Nuestros productos</h2>
-                  <div class="muestra-productos">
-                        {% for p in productos|slice:":4" %}
-                              <div class="box">
-                                    <img src="{{p.imagen.url}}" alt="">
-                                    <h1>{{p.nombre}} </h1>
-                                    <h2 id="precio">${{p.valor}}</h2>
-                                    <p>{{p.descripcion}}</p>
-                              </div>
-                        {% endfor %}
-                  </div>
-                  <div class="button">
-                        <a href="{% url 'Catalogo' %}"><button id="btnGaleria"><span>Ver más productos</span></button></a>
-                  </div>
+      <div class="index-info">
+            <div class="banner">
+                  <img src="{% static 'img/portada.jpg' %}">
+                  <h1>Regala cariño, con Florería Pétalos.</h1>
+            </div>
+
+            <h2>Nuestros productos</h2>
+            <div class="muestra-productos">
+                  {% for p in productos|slice:":4" %}
+                        <div class="box">
+                              <img src="{{p.imagen.url}}" alt="">
+                              <h1>{{p.nombre}} </h1>
+                              <h2 id="precio">${{p.valor}}</h2>
+                              <p>{{p.descripcion}}</p>
+                        </div>
+                  {% endfor %}
+            </div>
+
+            <div class="button">
+                  <a href="{% url 'Catalogo' %}"><button id="btnGaleria"><span>Ver más productos</span></button></a>
             </div>
       </div>
 {% endblock contenido %}

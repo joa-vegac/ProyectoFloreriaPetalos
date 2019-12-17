@@ -20,10 +20,11 @@
         <table cellspacing="0" id="listado-tabla">
 
             <tr>
-                <th>Imagen</th>
+                <th class="imagen">Imagen</th>
                 <th>Nombre </th>
                 <th>Valor </th>
                 <th class="descripcion">Descripción </th>
+                <th>Categoría</th>
                 <th>Stock </th>
                 <th>Estado </th>
                 <th class="created_date">Fecha de registro</th>
@@ -32,11 +33,12 @@
     
             {% for p in productos %}
             <tr>
-                <td><img src="{{p.imagen.url}}"></td>
+                <td class="imagen"><img src="{{p.imagen.url}}"></td>
                 <td style="max-width: 130px;">{{p.nombre}}</td>
                 <td>${{p.valor}}</td>
                 <td class="descripcion" style="max-width: 350px;">{{p.descripcion}}</td>
-                <td>{{p.stock}}</td>
+                <td>{{p.categoria}}</td>
+                <td style="text-align: center;">{{p.stock}}</td>
                 <td style="max-width: 80px;">{{p.estado}}</td>
                 <td class="created_date" style="max-width: 130px;">{{p.created_date}}</td>
 

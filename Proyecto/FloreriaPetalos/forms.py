@@ -9,7 +9,7 @@ class ProductoForm(ModelForm):
 
     class Meta:
         model= Producto
-        fields =['nombre', 'valor', 'descripcion', 'stock', 'imagen', 'estado']
+        fields =['nombre', 'valor', 'descripcion', 'stock', 'imagen', 'estado', 'categoria']
 
 
 class customuserform(UserCreationForm):

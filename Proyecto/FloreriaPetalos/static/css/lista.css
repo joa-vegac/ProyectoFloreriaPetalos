@@ -100,6 +100,7 @@ td{
 }
 
 .accion img{
+    margin: auto;
     display: none;
 }
 
@@ -107,7 +108,7 @@ td{
 
     .accion img{
         width: 20px;
-        margin: 2px;
+        align-self: center;
         display: block;
         filter: opacity(0.8);
     }
@@ -124,4 +125,70 @@ td{
         max-width: 35px; 
         max-height: 35px;
     }
+}
+
+@media screen and (max-width: 650px) {
+
+    .accion input{
+        display: none;
+    }
+
+    .descripcion, .created_date{
+        display: none;
+    }
+
+    #listado-tabla img{
+        max-width: 25px; 
+        max-height: 25px;
+    }
+
+    th{
+        padding-left: 2px;
+        font-size: 14px;
+    }
+    
+    td{
+        padding-left: 2px;
+        font-size: 13px;
+    }
+
+    #btn-registrar{
+        font-size: 14px;
+        height: 30px;
+    }
+    
+        
+}
+
+@media screen and (max-width: 450px) {
+
+    .accion input{
+        display: none;
+    }
+
+    .descripcion, .created_date{
+        display: none;
+    }
+
+    .imagen{
+        display: none;
+    }
+
+    th{
+        padding-left: 0;
+        font-size: 14px;
+    }
+    
+    td{
+        padding-left: 0;
+        font-size: 13px;
+    }
+
+    #btn-registrar{
+        font-size: 12px;
+        height: 30px;
+        width: 90%;
+    }
+    
+        
 }
